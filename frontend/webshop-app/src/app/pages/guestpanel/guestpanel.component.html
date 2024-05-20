@@ -1,0 +1,51 @@
+
+<mat-toolbar class="toolbar">
+  <a href="javascript:void(0);" class="home-page-link" (click)="handleHomeClick()">
+    <div class="logo-container">
+
+
+
+
+      <mat-icon class="home-icon">store</mat-icon>
+      <p class="app-title">Web Shop</p>
+
+
+
+
+    </div>
+  </a>
+
+  <div class="toolbar-content" >
+
+
+    <button class="panel-item" *ngIf="authService.loggedIn" mat-button routerLink="/myshop">My Shop</button>
+    <button class="panel-item" *ngIf="authService.loggedIn" mat-button routerLink="/mypurchases">Purchases</button>
+    <button class="panel-item" *ngIf="authService.loggedIn" mat-button routerLink="/support">Support</button>
+
+    <div class="panel-item">
+      <button mat-icon-button *ngIf="authService.loggedIn" routerLink="/myaccount">
+        <mat-icon *ngIf="authService.currentUser?.avatar != null">
+          <img [src]="this.authService.currentUser?.avatar">
+  
+        </mat-icon>
+  
+        <mat-icon *ngIf="authService.currentUser?.avatar == null">
+          account_circle
+        </mat-icon>
+      </button>
+    </div>
+  
+
+
+
+
+    <div *ngIf="!isNotHomePage()" class="guest-panel">
+      <button mat-button *ngIf="!authService.loggedIn" (click)="goToLoginPage()">Log in</button>
+      <button mat-button *ngIf="authService.loggedIn" (click)="logoutUser()">Logout</button>
+      <button mat-button *ngIf="!authService.loggedIn" routerLink="/auth/signup">Sign up</button>
+
+    </div>
+
+  </div>
+
+</mat-toolbar>

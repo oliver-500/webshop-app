@@ -1,0 +1,1 @@
+mvn spring-boot:run -Dspring-boot.run.arguments="--PORT=9000 --MYSQL_DATASOURCE_PASSWORD="root" --MYSQL_DATASOURCE_USERNAME="root" --TOKEN_SECRET=244226452948404D635166546A576E5A7234753778214125432A462D4A614E64 --MYSQL_DATASOURCE_URL=jdbc:mysql://localhost:3306/webshop?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=CET"

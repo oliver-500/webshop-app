@@ -1,0 +1,141 @@
+.create-form {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.description-field {
+  max-height: fit-content;
+  max-lines: 30;
+}
+
+
+
+.image-card {
+
+  max-width: 150px;
+  max-height: 220px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-right: 15px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.mat-icon-centered {
+  margin-left: auto;
+  margin-right: auto
+}
+
+.container-cards {
+
+
+  margin-left: 15px;
+  margin-top: 15px;
+  height: 280px;
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+
+
+
+  /* Adjust this width as needed */
+
+
+}
+
+.images-section {
+  margin-top: 15px;
+  border: 1px solid #c2e1f0;
+  display: flex;
+  background-color: #eeeeee;
+  flex-direction: column;
+
+}
+
+img {
+  max-height: 150px;
+  max-width: 150px;
+}
+
+.container-cards::-webkit-scrollbar {
+  width: 10px;
+  /* Set the width of the scrollbar */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+.container-cards::-webkit-scrollbar-thumb {
+  background: #888;
+  /* Set the background color of the thumb */
+  /* Add rounded corners to the thumb */
+}
+
+#images-header-container {
+  border-top: 1px solid #c2e1f0;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px;
+
+  background-color: white;
+}
+
+h1 {
+  border-bottom: 1px solid #c2e1f0;
+  margin-bottom: 0px;
+
+}
+
+hr {
+  background-color: #c2e1f0;
+}
+
+.delete-button {
+  position: absolute;
+  bottom: 3px;
+  /* Adjust the values as needed */
+  right: 3px;
+  /* Adjust the values as needed */
+}
+
+.h-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.category-section {
+  border: 1px solid #c2e1f0;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+#images-header {
+
+  display: flex;
+  justify-content: center;
+
+}
+
+#photos-label {
+  margin-left: auto;
+  margin-bottom: auto;
+}
+
+.add-icon {
+  width: 200px
+}

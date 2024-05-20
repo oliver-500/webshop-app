@@ -1,0 +1,167 @@
+<div id="main-container">
+
+    <div id="header-container">
+
+        <div id="image-container">
+
+            <mat-icon class="avatar" *ngIf="tempImage.length > 0">
+                <img [src]="tempImage">
+
+            </mat-icon>
+
+            <mat-icon class="avatar" *ngIf="tempImage == ''">
+                account_circle
+            </mat-icon>
+
+
+            <button *ngIf="isEditing" (click)="photoInput.click()" id="edit-image-button" mat-icon-button>
+                <mat-icon>add</mat-icon>
+            </button>
+            <input #photoInput hidden="true" type="file" accept="image/*" (change)="onFileSelected($event)">
+
+
+
+        </div>
+        <div id="right-section">
+
+            <button [disabled]="isEditing" id="change-pw-button" mat-flat-button (click)="showPasswordFields()">
+                Change password
+            </button>
+
+            <form form [formGroup]="form2">
+                <mat-form-field *ngIf="isPasswordEditing" maxlength="20" minlength="5" appearance="outline"
+                    color="primary">
+                    <mat-label>Current Password</mat-label>
+                    <input matInput name="oldPassword" formControlName="oldPassword" type="password">
+
+
+                </mat-form-field>
+
+                <mat-form-field *ngIf="isPasswordEditing" maxlength="20" minlength="5" appearance="outline"
+                    color="primary">
+                    <mat-label>New Password</mat-label>
+                    <input matInput name="newPassword" formControlName="newPassword" type="password">
+
+
+                </mat-form-field>
+            </form>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+    <div id="user-info-container">
+
+        <div class="actions-container">
+
+            <button mat-flat-button *ngIf="isPasswordEditing" (click)="cancelPasswordEdit()">Cancel</button>
+
+            <button mat-flat-button *ngIf="isPasswordEditing" [disabled]="!isPasswordFormValid()"
+                (click)="savePassword()">Save</button>
+
+        </div>
+
+        <div id="title-container">
+
+            <h1>My info</h1>
+
+
+            <button [disabled]="isPasswordEditing" mat-icon-button (click)="edit()">
+                <mat-icon>edit</mat-icon>
+
+            </button>
+        </div>
+
+        <form form [formGroup]="form">
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput maxlength="20" minlength="5" [readonly]="true" formControlName="username"
+                    name="lastname" type="text">
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email Adress</mat-label>
+                <input matInput maxlength="50" minlength="5" [readonly]="!isEditing" formControlName="email"
+                    name="email" type="email">
+
+
+
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>First name</mat-label>
+                <input matInput maxlength="45" minlength="5" [readonly]="!isEditing" formControlName="name"
+                    name="firstname" required type="text">
+
+
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Last name</mat-label>
+                <input matInput maxlength="45" minlength="5" [readonly]="!isEditing" formControlName="lastName"
+                    name="lastname" type="text">
+
+
+            </mat-form-field>
+
+
+
+
+
+
+
+
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>City</mat-label>
+                <input matInput maxlength="45" minlength="5" [readonly]="!isEditing" formControlName="city" id="city"
+                    name="city" type="text">
+
+
+            </mat-form-field>
+
+            <!-- <mat-form-field maxlength="20" minlength="5" appearance="outline" color="primary">
+                <mat-label>Password</mat-label>
+                <input matInput id="password" name="password" formControlName="password" type="password">
+        
+        
+              </mat-form-field> -->
+
+            <div *ngIf="isEditing" class="actions-container">
+                <button mat-flat-button (click)="cancel()">Cancel</button>
+                <div id="confirmation-container">
+                    <span>Confirm your password</span>
+                    <mat-form-field id="confirm-password-field" maxlength="20" minlength="5" appearance="outline"
+                        color="primary">
+                        <mat-label>Password</mat-label>
+                        <input matInput id="password" name="password" formControlName="password" type="password">
+
+
+                    </mat-form-field>
+                </div>
+
+                <button mat-flat-button [disabled]="!isFormValid()" (click)="save()">Save</button>
+            </div>
+        </form>
+
+
+    </div>
+
+
+
+
+</div>

@@ -1,0 +1,249 @@
+.container {
+ 
+  flex: 1;
+ 
+  overflow: auto;
+  background-color: #eeeeee;
+  width: 100%;
+  margin-bottom: auto;
+  padding-bottom: auto;
+  
+}
+
+
+
+
+.product-card {
+  border-radius: 7px 7px 0 0;
+  max-width: 200px;
+ 
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-right: 15px;
+  margin-bottom: 15px;
+  
+  min-height: 250px;
+  height: 270px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+.sidenav-action-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+
+.mat-card-content{
+  height: 20%;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  word-wrap: break-word;
+  
+  /* Display ellipsis (...) for truncated text */
+  line-height: 30px;
+  
+}
+
+
+
+.product-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.container-cards {
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  margin-top: 20px;
+ 
+  justify-content: flex-start;
+}
+
+.products-paginator {
+  background-color: #eeeeee;
+
+}
+
+.placeholder-image {
+  width: fit-content;
+  height: fit-content;
+  font-size: 2rem;
+}
+
+.card-image {
+  width: 200px;
+  height: 150px;
+}
+
+#sold-marker-span {
+  border-radius: 3px 0 0 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: smaller;
+  background-color: #333;
+  /* Set background color as needed */
+  color: white;
+  /* Set text color as needed */
+  padding: 3px;
+  /* Add padding to style the text */
+
+}
+
+.no-image-container {
+  width: 200px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+
+}
+
+.toolbar-products {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #c2e1f0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+ 
+}
+
+
+.products-commands-section{
+  margin: 10px;
+  margin-right: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+ 
+
+}
+
+.product-card:hover {
+  cursor: pointer;
+  /* Change to the cursor style of your choice */
+}
+
+.add-button {
+  background-color: white;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+ 
+  flex: 1;
+  height: 100px;
+  
+}
+
+#row-item-first{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 0;
+  margin-right: 10px;
+
+  
+
+  
+}
+
+#row-item-second{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 0;
+  background-color: #c2e1f0;
+  
+  border-radius: 7px 7px 0 0;
+  
+}
+
+#row-item-first h1, #row-item-second h1{
+  margin: 10px
+}
+
+#row-item-first button, #row-item-second button{
+  margin: 10px;
+}
+
+#filter-button{
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row h1,
+.row {
+  margin: 0;
+  /* Reset the margin to center the h1 vertically */
+}
+
+.filter-container{
+  width: 250px;
+}
+
+.row button {
+  margin: 20px;
+}
+
+
+
+.product-actions {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 15%;
+ 
+  border-top: 1px solid #c2e1f0;
+  
+}
+
+.actions-item{
+  flex: 1;
+}
+
+.actions-item-button{
+  width: 25%;
+}
+
+.filter-field {
+  width: 98%;
+  height: 80%;
+  padding-top: 10px;
+  margin-top: 10px;  
+  padding-left: 15px;
+  padding-right: 15px;
+
+ 
+}
+
+.sidenav{
+  padding: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+ 
+  
+}
+
+.filter-field-sidenav{
+  width: 100%;
+}

@@ -1,0 +1,106 @@
+<div class="product-container">
+
+  <h1>{{product?.title}}</h1>
+
+
+  <div id="buy-container">
+    <div class="price-section">
+      <span class="product-details-row">{{product?.price}} €</span> &nbsp; &nbsp; <span *ngIf="product?.used"
+        class="product-condition" style="background-color: lightgray;">Used</span>
+      <span *ngIf="!product?.used" class="product-condition" style="background-color: greenyellow;  ">New</span>
+
+    </div>
+    <div>
+      <button mat-stroked-button *ngIf="authService.loggedIn && !product?.sold" [title]='isOwnProduct() ? "You cannot buy your own product." : "Buy a product"'
+       [disabled]="isOwnProduct()" (click)="buyProduct($event)"
+        class="buy-button">Buy</button>
+        <span *ngIf="product?.sold" class="product-condition" style="background-color: rgb(219, 177, 177);  ">Sold</span>
+    </div>
+  </div>
+
+  <div class="category-section">
+    <h2 >{{category?.name}}</h2>
+   
+    <div *ngFor="let attribute of attributes; let i = index">
+      <p *ngIf="attributesOfCategory[i]?.name">{{attributesOfCategory[i].name}} : {{attribute.value}}</p>
+    </div>
+  </div>
+
+
+
+
+
+  <div style="border: 1px solid #c2e1f0;; margin-top: 10px; height: 500px; position: relative; display: flex ; align-items: center;
+    justify-content: center;
+    overflow: hidden; margin-left: auto; margin-right: auto;
+  ">
+    <button *ngIf="images!.length > 0" (click)="changeIndex(false)" mat-button
+      style="border: 2px solid #000; position: absolute; top: 50%; left: 1px;  bottom:50%;  transform: translate(20%); background-color: rgba(255, 255, 255, 0.5);">
+      <mat-icon style="margin-left: auto; margin-right: auto;">chevron_left</mat-icon>
+    </button>
+    <img *ngIf="images!.length > 0" [src]="images![selectedImageIndex!]" style="max-width: 500px; object-fit: contain;">
+    <mat-icon *ngIf="images!.length == 0">broken_image</mat-icon>
+    <button *ngIf="images!.length > 0" (click)="changeIndex(true)" mat-button
+      style=" border: 2px solid #000; position: absolute; top: 50%; right: 1px;  bottom:50%;  transform: translate(-20%); background-color: rgba(255, 255, 255, 0.5);">
+      <mat-icon  style="margin-left: auto; margin-right: auto;">chevron_right</mat-icon>
+    </button>
+  </div>
+
+
+
+  <div class="two-elements-container">
+    <span>Location: {{product?.location}}</span>
+    <span>Contact: {{product?.contact}}</span>
+  </div>
+  <br>
+  <h2>Description: </h2>
+  <p> {{product?.description}}</p>
+
+
+  <div class="productComments"></div>
+
+
+</div>
+
+<div class="product-container">
+  <div id="comments-container">
+    <h1 id="comments-header">Comments</h1>
+    <button *ngIf="authService.loggedIn && !this.product!.sold"  mat-icon-button (click)="writeComment()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <form *ngIf="isCommenting" form [formGroup]="form">
+    <mat-form-field class="text-field">
+        <mat-label>Your Comment</mat-label>
+        <div class="textarea-container">
+            <textarea id="comment-area" matInput maxLines="10" maxHeight="300px"  rows="2" maxlength="500" formControlName="mcontent"
+                autocomplete="off"></textarea>
+        </div>
+
+
+    </mat-form-field>
+
+    <div class="button-container">
+        <button type="submit" [disabled]="form.invalid" mat-button (click)="addComment()">Send</button>
+    </div>
+
+</form>
+
+  
+  <div *ngFor="let comment of commentService.comments; let i = index" class="comment-container">
+
+    <button mat-icon-button>
+      <mat-icon *ngIf="comment.userAvatar == undefined || comment.userAvatar == null">account_circle</mat-icon>
+      <img class="comment-img" *ngIf="comment.userAvatar != undefined" [src]="comment.userAvatar">
+    </button>
+    <div class="comment-content">
+      <span style="font-weight: 500;">{{comment.username}}</span><br>
+      <p>{{comment.mcontent}}</p>
+    </div>
+
+
+  </div>
+
+ 
+</div>

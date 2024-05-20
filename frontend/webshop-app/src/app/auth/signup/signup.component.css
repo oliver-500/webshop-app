@@ -1,0 +1,115 @@
+.container {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 40px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    justify-content: center;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: auto;
+        margin-right: auto;
+}
+
+.item{
+    margin-bottom: 10px;
+   
+  }
+
+.submit-button {
+    background-color: #c2e1f0;
+}
+
+mat-form-field{
+    width:250px;
+}
+
+.main-button{
+   
+    width: 250px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+.main-login-button{
+   
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: chartreuse;
+}
+
+
+
+.photo-picker{
+    display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center;
+
+    
+  }
+
+ 
+
+  .add-icon{
+  
+   width:inherit;
+    
+  }
+
+  p{
+    text-align: center;
+  }
+
+
+
+mat-card-title{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.add-image-container{
+    display: flex;
+    margin: 5px;
+    flex-direction: row;
+    justify-content: center;
+    
+
+}
+
+.avatar-card{
+   padding-top: 10px;
+   width: 150px;
+   height: 150px;
+   display: flex;
+   align-items: center; /* Center items vertically */
+   justify-content: center;
+}
+
+.empty-container{
+    width: 50px;
+    height: 50px;
+   
+}
+
+.default-icon{
+    font-size: 50px;
+    width: 50px;
+    height: 50px;
+}
+
+img{
+    width: 50px;
+    height: 50px;
+}
+
+.centered-text {
+    display: flex;
+    align-items: center; /* Vertical center alignment */
+    justify-content: center; /* Horizontal center alignment */
+    height: 100%; /* Ensures full height of the container */
+  }

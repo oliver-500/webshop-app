@@ -1,0 +1,33 @@
+.container {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 40px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    justify-content: center;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: auto;
+        margin-right: auto;
+}
+
+.item{
+    margin-bottom: 10px;
+    
+  }
+
+  button{
+    display:block; align-items: center ;  margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+}
+
+.submit-button {
+    background-color: #c2e1f0;
+}
+
+mat-form-field{
+    width:250px;
+}

@@ -1,0 +1,186 @@
+
+
+    <mat-sidenav-container class="container">
+        <mat-sidenav #sidenav mode="over" class="sidenav" [(opened)]="sideNavOpened">
+            <h2>Filter products</h2>
+            <div class="filter-container">
+                <mat-form-field class="filter-field-sidenav">
+                    <mat-label>Condition</mat-label>
+                    <mat-select [(value)]="productService.selectedCondition">
+                        <mat-option value="All">All</mat-option>
+                        <mat-option *ngFor="let condition of productService.conditions"
+                            [value]="condition">{{condition}}
+                            <p *ngIf="productService.categories.length == 0">No Conditions</p>
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="filter-container">
+                <mat-form-field class="filter-field-sidenav">
+                    <mat-label>Category</mat-label>
+                    <mat-select [(value)]="productService.selectedCategory">
+                        <mat-option value="All">All</mat-option>
+                        <mat-option *ngFor="let category of productService.categories"
+                            [value]="category.id">{{category.name}}
+                            <p *ngIf="productService.categories.length == 0">No categories</p>
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="filter-container">
+                <mat-form-field class="filter-field-sidenav">
+                    <mat-label>Low price</mat-label>
+
+                    <input type="number" (keydown.enter)="onEnterPressed()" matInput
+                        [(ngModel)]="productService.lowPrice">
+                </mat-form-field>
+                <mat-form-field class="filter-field-sidenav">
+
+                    <mat-label>High price</mat-label>
+                    <input type="number" (keydown.enter)="onEnterPressed()" matInput
+                        [(ngModel)]="productService.highPrice">
+
+                </mat-form-field>
+
+
+
+
+
+            </div>
+
+
+
+
+            <div class="sidenav-action-section">
+                <button mat-flat-button (click)="showAll()">
+                    Clear all
+
+                </button>
+
+                <button mat-flat-button (click)="filter()">
+                    Apply
+
+                </button>
+
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content>
+
+
+            <div>
+
+                <div class="toolbar-products">
+
+                    <div class="products-commands-section">
+
+                        <div id="row-item-first" *ngIf="!showOnlyUserProducts">
+                            <button mat-icon-button id="filter-button"
+                                (click)="showFilters()"><mat-icon>filter_list</mat-icon></button>
+
+                            <h1>Shop</h1>
+                        </div>
+
+
+                        <div *ngIf="showOnlyUserProducts" id="row-item-second">
+                            <button mat-icon-button id="filter-button"
+                                (click)="showFilters()"><mat-icon>filter_list</mat-icon></button>
+
+                            <h1>My shop</h1>
+                            <button mat-icon-button (click)="add()" class="add-button">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="row">
+
+
+
+                        <mat-form-field class="filter-field">
+                            <button matSuffix (click)="filter()" type="submit"
+                                style="padding: 0; margin-right: 3px; margin-top: 5px; margin-bottom:5px; margin-left: 3px; padding-right: 10px;"
+                                mat-icon-button>
+                                <mat-icon style="margin-left: auto; margin-right: auto;">search</mat-icon>
+                            </button>
+
+                            <input [(ngModel)]="productService.keyword" (keydown.enter)="onEnterPressed()" type="search"
+                                matInput placeholder="Search">
+
+                        </mat-form-field>
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+
+                <div class="container-cards">
+                    <div *ngIf="productService.products.length == 0"
+                        style="margin-left: auto; margin-right: auto; padding: 20px;">
+                        <h2>No available products</h2>
+                    </div>
+                    <mat-card class="product-card"
+                        *ngFor="let product of productService.products | slice: (page - 1) * pageSize : page * pageSize"
+                        (click)="onCardClick(product)">
+
+
+                        <div class="no-image-container">
+                            <mat-icon *ngIf="product.image == null" class="placeholder-image">broken_image</mat-icon>
+                            <img class="card-image" *ngIf="product.image != null" [src]="product.image"
+                                alt="Product Photo">
+                            <span *ngIf="product.sold == true" id="sold-marker-span">SOLD</span>
+                        </div>
+
+
+
+
+                        <mat-card-title class="mat-card-content">{{product.title}}</mat-card-title>
+
+
+                        <mat-card-actions class="product-actions">
+
+                            <button class="actions-item-button" mat-icon-button
+                                *ngIf="this.showOnlyUserProducts && product.sold != true"
+                                (click)="edit(product, $event)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+
+                            <p class="actions-item"
+                                style="margin-top:auto; margin-bottom:auto; text-align: center; font-weight: 500;">
+                                {{product.price}} €
+                            </p>
+
+                            <button class="actions-item-button" mat-icon-button
+                                *ngIf="this.showOnlyUserProducts  && product.sold != true"
+                                (click)="delete(product, $event)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+
+
+
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+
+                <mat-paginator class="products-paginator" [length]="length" [pageSize]="pageSize"
+                    [pageSizeOptions]="pageSizeOptions" (page)="onPageChange($event)"></mat-paginator>
+
+            </div>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+    

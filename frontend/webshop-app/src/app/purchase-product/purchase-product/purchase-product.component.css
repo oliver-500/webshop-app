@@ -1,0 +1,23 @@
+.create-form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+
+h1{
+
+  display: flex;
+  
+  justify-content: center;
+  
+  }
+
+.actions{
+    display: flex;
+    justify-content: space-between;
+  }
+
+.payment-header{
+  padding-bottom: 10px;
+}

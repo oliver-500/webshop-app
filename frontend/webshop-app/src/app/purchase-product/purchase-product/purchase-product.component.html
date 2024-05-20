@@ -1,0 +1,38 @@
+<div mat-dialog-title class="container">
+    <form form [formGroup]="form">
+        <div id="payment-header">
+            <h1>Select payment method</h1>
+        </div>
+       
+        <div  mat-dialog-content class="create-form">
+            <mat-form-field >
+                <mat-label>Payment method</mat-label>
+                <mat-select [(value)]="selectedPayingOption" formControlName="payingMethod" required (selectionChange)="onMethodChanged($event)">
+                    
+                    <mat-option *ngFor="let option of payingOptions" [value]="option">{{option}}
+                       
+                    </mat-option>
+                </mat-select>
+        
+            </mat-form-field>
+        </div>
+      
+    
+        <div  mat-dialog-content class="create-form">
+            <mat-form-field >
+                <mat-label>{{payingInfoTitle}}</mat-label>
+                <input matInput formControlName="payingInfo" maxlength="50" autocomplete="off" />
+            </mat-form-field>
+        </div>
+       
+    
+        
+
+    </form>
+
+    <div mat-dialog-actions class="actions">
+        <button mat-button (click)="close()">Cancel</button>
+        <button mat-button [disabled]="form.invalid" type="submit" (click)="confirm()">Buy</button>
+    </div>
+</div>
+

@@ -1,0 +1,35 @@
+.product-container{
+    border-radius: 5px 5px 5px 5px;
+    background-color: white;
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+
+   
+    
+    
+    padding: 20px;
+
+  }
+
+.button-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.text-field{
+
+ width: 100%;
+}
+
+.textarea-container {
+    margin: 10px; /* Add margin around the textarea */
+    width: calc(100% - 20px); /* Calculate the width to account for margin */
+}
+
+textarea {
+    width: 100%; /* Make the textarea take up the full width of its parent */
+    max-height: 600px;
+    height: auto;
+    overflow-y: hidden;
+}

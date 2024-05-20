@@ -1,0 +1,35 @@
+<div class="container">
+    <table mat-table #table [dataSource]="dataSource" matSort class="table">
+
+        <!-- Define your columns -->
+        <ng-container matColumnDef="Product">
+
+
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Product</th>
+            <td mat-cell class="mat-cell" *matCellDef="let element">{{ element.product.title }}</td>
+
+
+
+        </ng-container>
+
+        <ng-container matColumnDef="Price">
+
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+            <td mat-cell class="mat-cell" *matCellDef="let element">{{ element.product.price }} &euro;</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Paying Method">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Paying Method</th>
+            <td mat-cell class="mat-cell" *matCellDef="let element">{{ element.payingMethod }}</td>
+        </ng-container>
+
+
+
+        <!-- Add rows for the data -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row class="mat-row" (click)="openProductPage(row)" *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+</div>

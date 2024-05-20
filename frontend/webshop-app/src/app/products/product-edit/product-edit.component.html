@@ -1,0 +1,191 @@
+<h1 *ngIf="currentStep == 1 && isEdit == false" mat-dialog-title>Create a product</h1>
+<h1 *ngIf="currentStep == 2 && isEdit == false" mat-dialog-title>Create a product: {{product.title}}</h1>
+<h1 *ngIf="isEdit == true" mat-dialog-title>Edit product: {{product.title}}</h1>
+
+<div>
+
+    <form [formGroup]="form">
+        <div mat-dialog-content *ngIf="currentStep === 2">
+
+
+            <div class="category-section">
+                <h2>Category: {{selectedCategory != null ? selectedCategory.name : "Category not selected"}}</h2>
+                <div formArrayName="fieldArray" class="create-form"
+                    *ngFor="let control of fieldArray.controls; let i = index; ">
+                    <mat-form-field>
+                        <mat-label>{{attributes[i].name}}</mat-label>
+                        <input matInput [formControlName]="i" value="aadas">
+                    </mat-form-field>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="images-section">
+
+                <div class="container-cards">
+                    <mat-card class="image-card" *ngFor="let image of photos; let i = index"
+                        (click)="onCardClick(image)">
+
+
+                        <img mat-card-image [src]="image.data" alt="Loading">
+
+
+                        <mat-card-actions>
+
+
+                            <button class="delete-button" mat-icon-button (click)="removePhoto(i)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+
+                <div id="images-header-container">
+                    <div id="images-header">
+                        <span id="photos-label">Photos (min-1, max-10)</span>
+                    </div>
+
+
+                    <button class="add-icon" mat-button (click)="photoInput.click()">Add photos</button>
+                </div>
+
+
+                <input #photoInput hidden="true" type="file" accept="image/*" (change)="onFilesSelected($event)"
+                    multiple>
+
+
+
+
+            </div>
+            <br>
+
+            <div>
+                <hr>
+
+                <br>
+
+            </div>
+
+            <div mat-dialog-actions class="actions">
+                <div>
+                    <button mat-button (click)="close()">Cancel</button>
+                </div>
+
+                <div>
+                    <button mat-button (click)="previousStep()"><mat-icon
+                            class="mat-icon-centered">navigate_before</mat-icon></button>
+                </div>
+                <div>
+
+
+
+                    <button mat-button [disabled]="isFormInvalid()" type="submit"
+                        (click)="save(form)">Save</button>
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+        <div *ngIf="currentStep === 1">
+            <div mat-dialog-content class="create-form">
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput maxlength="50" required formControlName="title" autocomplete="off" />
+
+
+                </mat-form-field>
+
+
+
+
+
+                <mat-form-field class="mat-input-price-element">
+                    <mat-label>Price(€)</mat-label>
+                    <input matInput #priceInput formControlName="price" autocomplete="off" (blur)="onInputBlur()"
+                        (focus)="onInputFocus()" />
+
+                </mat-form-field>
+
+                <div class="row">
+
+                    <mat-form-field>
+
+                        <mat-label>Condition</mat-label>
+                        <mat-select formControlName="used" required>
+                            <mat-option *ngFor="let condition of conditionsList; let i = index " [value]="condition">
+                                {{condition}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+
+
+
+                    <mat-form-field>
+                        <mat-label>Category</mat-label>
+                        <mat-select formControlName="category" required (selectionChange)="onCategoryChange($event)">
+                            <mat-option *ngFor="let category of categoriesList" [value]="category">
+                                {{category.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+
+                <mat-form-field>
+                    <mat-label>Location</mat-label>
+
+                    <input matInput formControlName="location" maxlength="100" autocomplete="off" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Contact</mat-label>
+                    <input matInput formControlName="contact" maxlength="15" autocomplete="off" />
+                </mat-form-field>
+
+                <mat-form-field class="description-field">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput maxLines="5" maxHeight="300px" rows="5" maxlength="500"
+                        formControlName="description" autocomplete="off"></textarea>
+
+                </mat-form-field>
+
+
+
+
+
+                <div mat-dialog-actions class="actions">
+                    <button mat-button (click)="close()">Cancel</button>
+                    <button mat-button type="submit" (click)="nextStep()">
+                        <mat-icon class="mat-icon-centered">navigate_next</mat-icon>
+                    </button>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+    </form>
+
+
+</div>

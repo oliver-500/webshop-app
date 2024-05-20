@@ -1,0 +1,19 @@
+<div class="container">
+
+
+
+    <h1>{{username}}, please enter activation code sent to your email address</h1>
+    <form (ngSubmit)="activate()">
+        <div class="item">
+            <mat-form-field appearance="outline">
+                <mat-label>PIN code</mat-label>
+                <input matInput maxlength="10" id="pincode"  required type="text" name="pincode"
+                    [(ngModel)]="activationRequest.pin">
+
+
+            </mat-form-field>
+        </div>
+
+        <button mat-raised-button type="submit">Activate</button>
+    </form>
+</div>

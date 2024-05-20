@@ -1,0 +1,25 @@
+<div class="product-container">
+    <h1>Contact support</h1>
+
+    <form form [formGroup]="form">
+        <mat-form-field class="text-field">
+            <mat-label>Your question</mat-label>
+            <div class="textarea-container">
+                <textarea matInput maxLines="10" maxHeight="300px"  rows="5" maxlength="500" formControlName="mcontent"
+                    autocomplete="off"></textarea>
+            </div>
+
+
+        </mat-form-field>
+
+        <div class="button-container">
+            <button type="submit" [disabled]="form.invalid" mat-button (click)="send()">Send</button>
+        </div>
+
+    </form>
+
+
+    
+
+
+</div>

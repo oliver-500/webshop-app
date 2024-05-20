@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+body,
+html {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #eeeeee;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.success-snackbar {
+  background-color: #17f322;
+  color: #fff;
+  border-radius: 8px;
+  /* Add more styles as needed */
+}
+
+.error-snackbar {
+  background-color: #ca1818;
+  color: #fff;
+  border-radius: 8px;
+  /* Add more styles as needed */
+}
+
+
+
+
+textarea::-webkit-scrollbar {
+  width: 10px;
+  /* Set the width of the scrollbar */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+textarea::-webkit-scrollbar-thumb {
+  background: #888;
+  /* Set the background color of the thumb */
+  border-radius: 5px;
+  /* Add rounded corners to the thumb */
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  /* Set the width of the scrollbar */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+body::-webkit-scrollbar-thumb {
+  background: #888;
+  /* Set the background color of the thumb */
+  border-radius: 5px;
+  /* Add rounded corners to the thumb */
+}

@@ -1,0 +1,52 @@
+<div class="container">
+
+
+  <div>
+    <h1>Log in to your Account</h1>
+  </div>
+  <br>
+  <div>
+    <form id="form" (ngSubmit)="loginUser()" class="login-form">
+
+
+
+        <div class="item">
+          <mat-form-field  appearance="outline" >
+            <mat-label>Username</mat-label>
+            <input matInput #usernameInput  maxlength="20" minlength="5" id="username" name="username" required type="text"
+              [(ngModel)]="loginRequest.username">
+  
+              <mat-error *ngIf="isFieldTooShort(loginRequest?.username, 5)">Username length 5-20</mat-error>
+  
+          </mat-form-field>
+        </div>
+      
+        <div class="item">
+          <mat-form-field appearance="outline" >
+            <mat-label>Password</mat-label>
+            <input matInput  maxlength="20" minlength="5"  id="password" name="password" required type="password" 
+              [(ngModel)]="loginRequest.password">
+              
+              <mat-error *ngIf="isFieldTooShort(loginRequest?.password, 5)">Password length 5-20</mat-error>
+  
+          </mat-form-field>
+        </div>
+        
+     
+
+
+      
+        
+     
+     
+        <button mat-raised-button type="submit" [disabled]="isFieldTooShort(loginRequest.password, 5) || isFieldTooShort(loginRequest.username, 5)" >Log in</button>
+      
+      
+
+
+    </form>
+  </div>
+  <br>
+  <button mat-raised-button routerLink="/auth/signup">Not registered? Sign up</button>
+
+</div>

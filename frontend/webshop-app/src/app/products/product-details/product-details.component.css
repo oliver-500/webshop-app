@@ -1,0 +1,159 @@
+.word-with-line {
+  display: flex;
+  margin-left: 20px;
+  align-items: center;
+  font-size: larger;
+  position: relative;
+  /* Enable relative positioning */
+}
+
+.word-with-line::after {
+  content: '';
+  /* Create an empty pseudo-element */
+  flex-grow: 1;
+  /* Make it take up remaining space */
+  border-top: 1px solid black;
+  /* Add a horizontal line */
+  margin: 0 20px;
+  /* Adjust horizontal spacing as needed */
+}
+
+
+
+.product-details-row {
+  font-size: 34px;
+  font-weight: 700;
+
+}
+
+.product-condition {
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 5px 5px 5px 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.product-container {
+  border-radius: 5px 5px 5px 5px;
+  background-color: white;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+
+  margin-bottom: 20px;
+
+  padding: 20px;
+
+}
+
+.price-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.product-container h1 {
+  word-wrap: break-word;
+}
+
+.two-elements-container span {
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+#buy-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.two-elements-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1vh;
+  margin-top: 10px;
+  border: 1px solid #c2e1f0;
+}
+
+.comment-img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  border-radius: 50%;
+}
+
+.comment-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.comment-content {
+  padding: 10px;
+  margin: 5px;
+  background-color: aliceblue;
+  border-radius: 5px 5px 5px 5px;
+  flex: 10
+}
+
+#comments-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#comments-header {
+
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.text-field {
+
+  width: 100%;
+}
+
+.textarea-container {
+
+  margin: 10px;
+  /* Add margin around the textarea */
+  width: calc(100% - 20px);
+  /* Calculate the width to account for margin */
+}
+
+textarea {
+  width: 100%;
+  /* Make the textarea take up the full width of its parent */
+  max-height: 600px;
+  height: auto;
+  overflow-y: hidden;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.category-section {
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #c2e1f0;
+}
+
+.buy-button {
+  background-color: #c2e1f0;
+  font-size: 20px
+}
