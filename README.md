@@ -1,8 +1,8 @@
 How to run this app:
 
 1. method (Required software: Docker)
-	1a. Use docker: docker-compose up
-	FINISH: App is available on localhost:3000
+	1. Use docker: docker-compose up
+	2. App is available on localhost:3000
 
 2. method (Required software: MySQL database server Ver 8.0.31+ on port 3306, Spring boot with Java and Maven and Node Package Manager)
 
@@ -16,4 +16,4 @@ How to run this app:
 	6. Navigate to frontend app directory with: cd ./frontend/webshop-app/: 
 	7. Install packages with npm: npm install
 	8. Start frontend web server with: ng serve
-	FINISH: App is available on localhost:4200
+	9. App is available on localhost:4200
